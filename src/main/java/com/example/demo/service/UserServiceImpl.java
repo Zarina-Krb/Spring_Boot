@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.DAO.UserDao;
+import com.example.demo.Dao.UserDao;
 import com.example.demo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,8 +10,12 @@ import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
+
+    private final UserDao userDao;
     @Autowired
-    private UserDao userDao;
+    public UserServiceImpl(UserDao userDao) {
+        this.userDao = userDao;
+    }
 
     @Override
     @Transactional

@@ -11,13 +11,24 @@
         <th>name</th>
         <th>lastName</th>
         <th>age</th>
+        <th>Actions</th>
     </tr>
     <tr th:each="user : ${users}">
         <td th:text="${user.id}"></td>
         <td th:text="${user.name}"></td>
         <td th:text="${user.lastName}"></td>
         <td th:text="${user.age}"></td>
+
+    <td>
+        <a th:href="@{/users/edit(id=${user.id})}">Edit</a>
+
+            <form th:action="@{/users/delete}" method="post">
+                <input type="hidden" name="id" th:value="${user.id}">
+                <button>Delete</button>
+            </form>
+        </td>
     </tr>
+
 
 </table>
 <a th:href="@{/users/add}">Add User</a>

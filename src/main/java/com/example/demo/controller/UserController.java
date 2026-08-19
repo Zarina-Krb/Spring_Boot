@@ -41,11 +41,11 @@ public class UserController {
         return "users";
     }
 
-    @GetMapping("/findById")
-    public String findById(@RequestParam("id") Long id, Model model) {
+    @GetMapping("/edit")
+    public String edit(@RequestParam("id") Long id, Model model){
         User user = userService.findById(id);
         model.addAttribute("user", user);
-        return "users";
+        return "edit-user";
     }
 
     @PostMapping("/update")

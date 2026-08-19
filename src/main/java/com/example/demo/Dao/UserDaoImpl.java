@@ -1,4 +1,4 @@
-package com.example.demo.DAO;
+package com.example.demo.Dao;
 
 import com.example.demo.model.User;
 import jakarta.persistence.EntityManager;
@@ -38,7 +38,9 @@ public class UserDaoImpl implements UserDao {
     @Override
     public void delete(Long id) {
         User user = entityManager.find(User.class, id);
-        entityManager.remove(user);
+        if(user != null) {
+            entityManager.remove(user);
+        }
     }
 }
 
