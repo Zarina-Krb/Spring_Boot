@@ -19,8 +19,8 @@
         <td th:text="${user.lastName}"></td>
         <td th:text="${user.age}"></td>
 
-    <td>
-        <a th:href="@{/users/edit(id=${user.id})}">Edit</a>
+        <td>
+            <a th:href="@{/users/edit(id=${user.id})}">Edit</a>
 
             <form th:action="@{/users/delete}" method="post">
                 <input type="hidden" name="id" th:value="${user.id}">
